@@ -441,7 +441,7 @@
         getAdmin()
         function getAdmin() {
 
-            fetch('http://localhost:5001/admin/getAllAdmins')
+            fetch('https://furnitureemporium.shop/admin/getAllAdmins')
                 .then(response => response.json())
                 .then((data) => {
                     admin = data.data
@@ -513,7 +513,7 @@
                         confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            fetch("http://localhost:5001/admin/deleteAdmin/" + item._id, {
+                            fetch("https://furnitureemporium.shop/admin/deleteAdmin/" + item._id, {
                                 method: 'DELETE',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -550,7 +550,7 @@
                 role: "sub_admin",
                 status: "Active"
             }
-            fetch("http://localhost:5001/admin/updateAdmin/" + selectedProductid, {
+            fetch("https://furnitureemporium.shop/admin/updateAdmin/" + selectedProductid, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -580,7 +580,7 @@
                 role: "sub_admin",
                 status: "Active"
             }
-            fetch("http://localhost:5001/admin/adminRegister", {
+            fetch("https://furnitureemporium.shop/admin/adminRegister", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
