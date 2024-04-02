@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.png">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon/favicon-16x16.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+    <!-- Include SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+
+    <!-- Include SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- Include Toastify CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
+
+    <!-- Include Toastify JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+
+    <style>
+        .popup {
+            visibility: hidden;
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .popup::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
+
+        #dashboardLink:hover .popup {
+            visibility: visible;
+        }
+    </style>
+
+    <title>ADMIN | SIGNUP</title>
+</head>
+
+<body>
+    <!-- NAV BAR -->
+
+    <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <svg class="f-w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.53 72.26">
+                    <path
+                        d="M10.43,54.2h0L0,36.13,10.43,18.06,20.86,0H41.72L10.43,54.2Zm67.1-7.83L73,54.2,68.49,62,45,48.47,31.29,72.26H20.86l-5.22-9L52.15,0H62.58l5.21,9L54.06,32.82,77.53,46.37Z"
+                        fill="currentColor" fill-rule="evenodd" />
+                </svg>
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <!-- <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get
+                    started</button> -->
+                <button data-collapse-toggle="navbar-sticky" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200  dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                <a id="dashboardLink">
+                    <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.53 72.26">
+                        <path
+                            d="M10.43,54.2h0L0,36.13,10.43,18.06,20.86,0H41.72L10.43,54.2Zm67.1-7.83L73,54.2,68.49,62,45,48.47,31.29,72.26H20.86l-5.22-9L52.15,0H62.58l5.21,9L54.06,32.82,77.53,46.37Z"
+                            fill="currentColor" fill-rule="evenodd" />
+                    </svg>
+                </a>
+
+
+            </div>
+        </div>
+    </nav>
+    <!-- NAV BAR -->
+    <!-- CONTENT -->
+    <section>
+        <div class="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
+            <div class="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
+                <div class="mb-2 flex justify-center">
+                    <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.53 72.26">
+                        <path
+                            d="M10.43,54.2h0L0,36.13,10.43,18.06,20.86,0H41.72L10.43,54.2Zm67.1-7.83L73,54.2,68.49,62,45,48.47,31.29,72.26H20.86l-5.22-9L52.15,0H62.58l5.21,9L54.06,32.82,77.53,46.37Z"
+                            fill="currentColor" fill-rule="evenodd" />
+                    </svg>
+                </div>
+                <h2 class="text-center text-2xl font-bold leading-tight text-black">
+                    Sign up to create account
+                </h2>
+                <form action="#" method="POST" class="mt-8">
+                    <div class="space-y-5">
+                        <div>
+                            <label for="name" class="text-base font-medium text-gray-900">
+                                Full Name
+                            </label>
+                            <div class="mt-2">
+                                <input
+                                    class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    type="text" placeholder="Full Name" id="name" />
+                                <span id="name-error" class="text-red-500"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="text-base font-medium text-gray-900">
+                                Email address
+                            </label>
+                            <div class="mt-2">
+                                <input
+                                    class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    type="email" placeholder="Email" id="email" />
+                                <span id="email-error" class="text-red-500"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <label for="password" class="text-base font-medium text-gray-900">
+                                    Password
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <input
+                                    class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    type="password" placeholder="Password" id="password" />
+                                <span id="password-error" class="text-red-500"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <label for="confirm-password" class="text-base font-medium text-gray-900">
+                                    Confirm Password
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <input
+                                    class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    type="password" placeholder="Confirm Password" id="confirm-password" />
+                                <span id="confirm-password-error" class="text-red-500"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit"
+                                class="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80">
+                                Create Account
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="ml-2">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CONTENT -->
+    <script>
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+        // Get the anchor tag element
+        const dashboardLink = document.getElementById('dashboardLink');
+
+        // Attach an event listener to handle mouse hover
+        dashboardLink.addEventListener('mouseenter', function () {
+            Toastify({
+                text: "SIGNUP To Admin Dashboard",
+                duration: 3000, // Duration in milliseconds
+                newWindow: true,
+                close: true,
+                gravity: "top", // Display position: 'top', 'bottom', 'center'
+                position: 'center', // Toast position: 'left', 'right', 'center'
+                backgroundColor: "bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900",
+            }).showToast();
+        });
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            const nameInput = document.getElementById("name");
+            const emailInput = document.getElementById("email");
+            const passwordInput = document.getElementById("password");
+            const confirmPasswordInput = document.getElementById("confirm-password");
+
+            form.addEventListener("submit", function (event) {
+                let isValid = true;
+                // Reset error messages
+                const errorMessages = document.querySelectorAll(".error-message");
+                errorMessages.forEach(message => message.textContent = "");
+                // Check name input
+                if (nameInput.value.trim() === "") {
+                    isValid = false;
+                    document.getElementById("name-error").textContent = "Enter your fullname";
+                }
+                // Check email input
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value)) {
+                    isValid = false;
+                    document.getElementById("email-error").textContent = "Enter a valid email address";
+                }
+                // Check password input
+                if (passwordInput.value === "") {
+                    isValid = false;
+                    document.getElementById("password-error").textContent = "Enter a Password";
+                }
+                // Check confirm password input
+                if (confirmPasswordInput.value === "") {
+                    isValid = false;
+                    document.getElementById("confirm-password-error").textContent = "Confirm your Password";
+                } else if (passwordInput.value !== confirmPasswordInput.value) {
+                    isValid = false;
+                    document.getElementById("confirm-password-error").textContent = "Passwords do not match";
+                }
+                if (!isValid) {
+                    event.preventDefault(); // Prevent form submission if validation fails
+                }
+            });
+        });
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+        // SENT DATA TO BACKEND
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+
+                if (password !== confirmPassword) {
+                    // Passwords don't match, handle this case appropriately
+                    Toastify({
+                        text: "Passwords do not match",
+                        duration: 3000, // Display duration in milliseconds
+                        close: true, // Show close button
+                        gravity: "top", // Display position: top, bottom
+                        backgroundColor: "linear-gradient(to right, #ff416c, #ff4b2b)", // Background color
+                    }).showToast();
+                    return;
+                }
+
+
+                // Fetch API to send data to backend
+                fetch('http://localhost:5001/auth/superadminsignup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // Add any other headers you may need, such as authorization token
+                    },
+                    body: JSON.stringify({
+                        // Construct the data object to send to the backend
+                        fullName: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        password: document.getElementById('password').value,
+                    })
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        
+                        console.log('Success:', data);
+                        // You can redirect the user or show a success message here
+                    })
+                    .catch(error => {
+                        // Handle errors
+                        console.error('Error:', error);
+                        // You can show an error message to the user
+                    });
+            });
+        });
+        ;
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    </script>
+
+
+
+</body>
+
+</html>
