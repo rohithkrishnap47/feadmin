@@ -3,7 +3,7 @@ var selectuserid;
 var user = []
 displayuser()
 function displayuser() {
-    fetch("http://localhost:5001/user/listusers")
+    fetch("https://furnitureemporium.shop/user/listusers")
         .then(response => response.json())
         .then(data => {
             user = data.data
@@ -53,7 +53,7 @@ function setUser() {
                 confirmButtonText: 'YES'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch("http://localhost:5001/user/userDelete/" + item._id, {
+                    fetch("https://furnitureemporium.shop/user/userDelete/" + item._id, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ function updateBanner() {
         description: document.getElementById("bannerdescription").value,
         bannerImage: document.getElementById("bannerimage").value,
     }
-    fetch("http://localhost:5001/banner/updateBanner/" + selectuserid, {
+    fetch("https://furnitureemporium.shop/banner/updateBanner/" + selectuserid, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ function createBanner() {
         bannerImage: document.getElementById("bannerimage").value,
     }
     console.log(body);
-    fetch("http://localhost:5001/banner/createBanner", {
+    fetch("https://furnitureemporium.shop/banner/createBanner", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -27,7 +27,7 @@ var selecteBannerid;
 var banner = []
 displaybanner()
 function displaybanner() {
-    fetch("http://localhost:5001/banner/getAllBanners")
+    fetch("https://furnitureemporium.shop/banner/getAllBanners")
         .then(response => response.json())
         .then(data => {
             banner = data.data
@@ -100,7 +100,7 @@ function setBanner() {
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch("http://localhost:5001/banner/deleteBanner/" + item._id, {
+                    fetch("https://furnitureemporium.shop/banner/deleteBanner/" + item._id, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
@@ -150,7 +150,7 @@ function updateBanner() {
     // Append the image file to FormData
     formData.append('file', imageFile);
 
-    fetch("http://localhost:5001/banner/updateBanner/"+selecteBannerid, {
+    fetch("https://furnitureemporium.shop/banner/updateBanner/"+selecteBannerid, {
         method: 'PUT',
         body: formData // Set the FormData object as the body
     })
@@ -193,7 +193,7 @@ function createBanner() {
     console.log(formData);
 
     // Send the request with FormData
-    fetch("http://localhost:5001/banner/createbanner", {
+    fetch("https://furnitureemporium.shop/banner/createbanner", {
         method: 'POST',
         body: formData
     })
@@ -249,7 +249,7 @@ clicktype.addEventListener("change", () => {
 
 function getCategory() {
 
-    fetch('http://localhost:5001/category/categoryAll')
+    fetch('https://furnitureemporium.shop/category/categoryAll')
         .then(response => response.json())
         .then(data => {
             category_list = data.data
@@ -271,7 +271,7 @@ function getCategory() {
 
 function getProducts() {
 
-    fetch('http://localhost:5001/product/productsAll')
+    fetch('https://furnitureemporium.shop/product/productsAll')
         .then(response => response.json())
         .then(data => {
             product_list = data.data
