@@ -3,7 +3,7 @@ var selectuserid;
 var user = []
 displayuser()
 function displayuser() {
-    fetch("http://localhost:5001/user/show-orders")
+    fetch("https://furnitureemporium.shop/user/show-orders")
         .then(response => response.json())
         .then(data => {
             user = data
@@ -86,7 +86,7 @@ function showOrders() {
         //         confirmButtonText: 'YES'
         //     }).then((result) => {
         //         if (result.isConfirmed) {
-        //             fetch("http://localhost:5001/user/userDelete/" + item._id, {
+        //             fetch("https://furnitureemporium.shop/user/userDelete/" + item._id, {
         //                 method: 'DELETE',
         //                 headers: {
         //                     'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ function updateBanner() {
         description: document.getElementById("bannerdescription").value,
         bannerImage: document.getElementById("bannerimage").value,
     }
-    fetch("http://localhost:5001/banner/updateBanner/" + selectuserid, {
+    fetch("https://furnitureemporium.shop/banner/updateBanner/" + selectuserid, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ function createBanner() {
         bannerImage: document.getElementById("bannerimage").value,
     }
     console.log(body);
-    fetch("http://localhost:5001/banner/createBanner", {
+    fetch("https://furnitureemporium.shop/banner/createBanner", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -183,7 +183,7 @@ function createBanner() {
 // UPDATE-ORDER-STATUS
 async function changeStatus(status, id) {
     try {
-        const response = await fetch('http://localhost:5001/user/update-order-status/' + id, {
+        const response = await fetch('https://furnitureemporium.shop/user/update-order-status/' + id, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
