@@ -3,7 +3,7 @@ var selecteBannerid = 0;
 var user = []
 displayCoupon()
 function displayCoupon() {
-    fetch("http://localhost:5001/admin/getALLcoupon")
+    fetch("https://furnitureemporium.shop/admin/getALLcoupon")
 
         .then(response => response.json())
         .then(data => {
@@ -64,7 +64,7 @@ function setUser() {
                 confirmButtonText: 'YES'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch("http://localhost:5001/admin/delete-coupon/" + item._id, {
+                    fetch("https://furnitureemporium.shop/admin/delete-coupon/" + item._id, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
@@ -103,7 +103,7 @@ function updateBanner() {
         description: document.getElementById("bannerdescription").value,
         bannerImage: document.getElementById("bannerimage").value,
     }
-    fetch("http://localhost:5001/banner/updateBanner/" + selecteBannerid, {
+    fetch("https://furnitureemporium.shop/banner/updateBanner/" + selecteBannerid, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ function createCoupon() {
         validTo: document.getElementById("couponExpiry").value,
     }
     console.log(body);
-    fetch("http://localhost:5001/admin/create-coupon", {
+    fetch("https://furnitureemporium.shop/admin/create-coupon", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

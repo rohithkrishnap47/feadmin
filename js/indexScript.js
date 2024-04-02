@@ -30,7 +30,7 @@ function logout() {
 }
 // COUPON-COUNT-------------------------------------------------------------------------------------
 function displayCoupon() {
-  fetch("http://localhost:5001/admin/getALLcoupon")
+  fetch("https://furnitureemporium.shop/admin/getALLcoupon")
 
     .then(response => response.json())
     .then(data => {
@@ -49,7 +49,7 @@ function displaycouponCount() {
 }
 //  USERS-COUNT -------------------------------------------------------------------------------------
 function displayuser() {
-  fetch("http://localhost:5001/user/listusers")
+  fetch("https://furnitureemporium.shop/user/listusers")
     .then(response => response.json())
     .then(data => {
       user = data.data
@@ -66,7 +66,7 @@ function displayUserCount() {
 }
 // PRODUCTS-COUNT-------------------------------------------------------------------------------------
 function getProducts() {
-  fetch('http://localhost:5001/product/productsAll')
+  fetch('https://furnitureemporium.shop/product/productsAll')
     .then(response => response.json())
     .then(data => {
       products = data.data;
@@ -85,7 +85,7 @@ function getProductCount() {
 }
 // ORDERS-COUNT-------------------------------------------------------------------------------------
 function totalorders() {
-  fetch("http://localhost:5001/user/show-orders")
+  fetch("https://furnitureemporium.shop/user/show-orders")
     .then(response => response.json())
     .then(data => {
       orders = data;
