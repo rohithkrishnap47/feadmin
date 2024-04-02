@@ -34,7 +34,7 @@ Chart.defaults.global.defaultFontColor = '#858796';
 //   },
 // });
 
-fetch('http://localhost:5001/user/order-paymentmethod')
+fetch('https://furnitureemporium.shop/user/order-paymentmethod')
   .then(response => response.json())
   .then(data => {
     // Extracting labels and data from the response

@@ -121,7 +121,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 // lineChart()
 // function lineChart() {
 
-//   fetch('http://localhost:5001/user/order-chart')
+//   fetch('https://furnitureemporium.shop/user/order-chart')
 //       .then(response => response.json())
 //       .then(data => {
 //           console.log(data);
@@ -212,7 +212,7 @@ var myBarChart = new Chart(ctx, {
 lineChart();
 
 function lineChart() {
-  fetch('http://localhost:5001/user/order-chart')
+  fetch('https://furnitureemporium.shop/user/order-chart')
     .then(response => response.json())
     .then(data => {
       console.log(data);
