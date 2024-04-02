@@ -392,7 +392,7 @@
         getCategory()
         function getCategory() {
 
-            fetch('http://localhost:5001/category/categoryAll')
+            fetch('https://furnitureemporium.shop/category/categoryAll')
                 .then(response => response.json())
                 .then(data => {
                     category_list = data.data
@@ -412,7 +412,7 @@
         }
         // 
         function getProducts() {
-            fetch('http://localhost:5001/product/productsAll')
+            fetch('https://furnitureemporium.shop/product/productsAll')
                 .then(response => response.json())
                 .then(data => {
                     products = data.data
@@ -504,7 +504,7 @@
                         confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            fetch("http://localhost:5001/product/products/" + item._id, {
+                            fetch("https://furnitureemporium.shop/product/products/" + item._id, {
                                 method: 'DELETE',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -558,7 +558,7 @@
 
             formData.append('file', imageFile); // Append the image file to FormData
 
-            fetch("http://localhost:5001/product/UpdateProducts/" + selectedProductid, {
+            fetch("https://furnitureemporium.shop/product/UpdateProducts/" + selectedProductid, {
                 method: 'PUT',
                 body: formData,
             })
@@ -592,7 +592,7 @@
             formData.append('file', imageFile);
 
             // Send the request with FormData
-            fetch("http://localhost:5001/product/createProducts", {
+            fetch("https://furnitureemporium.shop/product/createProducts", {
                 method: "POST",
                 body: formData
             })
@@ -625,7 +625,7 @@
             var formData = new FormData();
             var fileInput = document.getElementById('fileInput').files[0];
             formData.append('file', fileInput);
-            fetch('http://localhost:5001/product/UpdateProducts', {
+            fetch('https://furnitureemporium.shop/product/UpdateProducts', {
                 method: 'POST',
                 body: formData
             })

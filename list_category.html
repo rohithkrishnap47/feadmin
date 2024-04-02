@@ -473,7 +473,7 @@
         getCategory()
         function getCategory() {
 
-            fetch('http://localhost:5001/category/categoryAll')
+            fetch('https://furnitureemporium.shop/category/categoryAll')
                 .then(response => response.json())
                 .then(data => {
                     category = data.data
@@ -544,7 +544,7 @@
                         confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            fetch("http://localhost:5001/category/deletecategory/" + item._id, {
+                            fetch("https://furnitureemporium.shop/category/deletecategory/" + item._id, {
                                 method: 'DELETE',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -592,7 +592,7 @@
             // }
             console.log("ambadi ",categoryname.value);
             console.log("jinjinakkadi ",categorydescription.value);
-            fetch("http://localhost:5001/category/updatecategory/" + selectedProductid, {
+            fetch("https://furnitureemporium.shop/category/updatecategory/" + selectedProductid, {
                 method: 'PUT',
                 body: formData,
             })
@@ -620,7 +620,7 @@
 
             // Append the image file to FormData
             formData.append('file', imageFile);
-            fetch("http://localhost:5001/category/createCategory", {
+            fetch("https://furnitureemporium.shop/category/createCategory", {
                 method: 'POST',
                 body: formData
             })
