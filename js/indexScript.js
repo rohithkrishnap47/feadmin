@@ -105,7 +105,7 @@ function updateTotalOrders() {
     const totalOrdersCount = orders.length;
     totalOrdersElement.textContent = totalOrdersCount;
 
-    const progressBarWidth = (totalOrdersCount / 30) * 100;
+    const progressBarWidth = (totalOrdersCount / 100) * 100;
     progressBar.style.width = progressBarWidth + '%';
     progressBar.setAttribute('aria-valuenow', progressBarWidth);
   }
